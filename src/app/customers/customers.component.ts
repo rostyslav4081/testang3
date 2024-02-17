@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {Customer } from "../models/customer";
 import {CustomerService} from "../services/customer.service";
+import { ButtonModule } from 'primeng/button';
+import {FormBuilder} from "@angular/forms";
 
 
 
@@ -14,7 +16,11 @@ export class CustomersComponent {
   customers: Customer[]=[];
   cols!: any[];
 
-  constructor(private customerService: CustomerService) {}
+
+
+
+  constructor(private customerService: CustomerService,private fb: FormBuilder) {}
+
   ngOnInit() {
     this.customerService.getCustomers().subscribe((res: Customer[]) => {
       this.customers = res;
@@ -26,5 +32,13 @@ export class CustomersComponent {
         { field: 'phone', header: 'Phone' }
       ];
     });
+  }
+
+  onSubmit() {
+
+  }
+
+  Close() {
+
   }
 }

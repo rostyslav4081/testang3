@@ -12,6 +12,14 @@ import { MessagesComponent } from './messages/messages.component';
 import {TableModule} from "primeng/table";
 import {PaginatorModule} from "primeng/paginator";
 import {HttpClientModule} from "@angular/common/http";
+import {ButtonModule} from "primeng/button";
+
+import {InputTextModule} from "primeng/inputtext";
+import {ReactiveFormsModule} from "@angular/forms";
+import {AddCustomerComponent} from "./addcustomer/addcustomer.component";
+import {DialogModule} from "primeng/dialog";
+import {AnimateModule} from "primeng/animate";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -19,6 +27,7 @@ import {HttpClientModule} from "@angular/common/http";
     CustomersComponent,
     OrdersComponent,
     MessagesComponent,
+    AddCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +38,12 @@ import {HttpClientModule} from "@angular/common/http";
     ),
     TableModule,
     PaginatorModule,
+    ButtonModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    DialogModule,
+    AnimateModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
