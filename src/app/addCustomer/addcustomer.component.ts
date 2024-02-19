@@ -1,26 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms'
 import {Customer} from "../models/customer";
 import {CustomerService} from "../services/customer.service";
-import {DynamicDialogRef} from "primeng/dynamicdialog";
+import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 
 
 
 @Component({
-  selector: 'app-addcustomer',
+  selector: 'app-addCustomer',
   templateUrl: './addcustomer.component.html',
   styleUrl: './addcustomer.component.css'
 })
 export class AddCustomerComponent {
   customerForm!: FormGroup;
+  @Input() formData:any;
 
 
-
-  constructor(private fb: FormBuilder,private customerService:CustomerService,private ref:DynamicDialogRef) {
-
-  }
-
-  ngOnInit():void{
+  constructor(private fb: FormBuilder,private customerService:CustomerService,public ref:DynamicDialogRef,public config:DynamicDialogConfig) {
     this.customerForm = this.fb.group({
       firstName: ['',Validators.required],
       lastName: ['',Validators.required],
@@ -28,6 +24,14 @@ export class AddCustomerComponent {
       phone:['',Validators.required,],
 
     },);
+
+  }
+
+  ngOnInit():void{
+   if (this.formData){
+     this.customerForm.patchValue(this.formData);
+   }
+
 
   }
 

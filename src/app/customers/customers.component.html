@@ -1,5 +1,4 @@
 <div style="display: flex; justify-content: center;">
-<p-button label="AddCustomer" (click)="openCustomerDialog()"></p-button>
   <p-table [columns]="cols" [value]="customers" [tableStyle]="{'max-width': '60%'}">
     <ng-template pTemplate="header" let-columns>
       <tr>
@@ -10,10 +9,18 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
       <tr>
-        <td *ngFor="let col of columns">
-          {{rowData[col.field]}}
+        <!-- Loop through columns except the last one -->
+        <ng-container *ngFor="let col of columns; let i = index">
+          <td *ngIf="i !== columns.length - 1">{{rowData[col.field]}}</td>
+        </ng-container>
+        <!-- Add buttons only in the last column -->
+        <td>
+          <button pButton type="button" (click)="openCustomerDialog()" label="AddCustomer"></button>
+          <button pButton type="button" (click)="openEditCustomerDialog(rowData)" label="EditCustomer" class="p-button-success"></button>
+          <button pButton type="button" label="Delete" class="p-button-danger"></button>
         </td>
       </tr>
+
     </ng-template>
   </p-table>
 </div>

@@ -4,7 +4,9 @@ import {CustomerService} from "../services/customer.service";
 import { ButtonModule } from 'primeng/button';
 
 import {DialogService} from "primeng/dynamicdialog";
-import {AddCustomerComponent} from "../addcustomer/addcustomer.component";
+import {AddCustomerComponent} from "../addCustomer/addcustomer.component";
+import {MessageService} from "primeng/api";
+import {EditCustomerComponent} from "../editcustomer/editcustomer.component";
 
 
 
@@ -12,7 +14,7 @@ import {AddCustomerComponent} from "../addcustomer/addcustomer.component";
   selector: 'app-customers',
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css',
-  providers:[DialogService]
+  providers:[DialogService,MessageService]
 })
 export class CustomersComponent {
 
@@ -22,7 +24,7 @@ export class CustomersComponent {
 
 
 
-  constructor(private customerService: CustomerService,private dialogService:DialogService) {}
+  constructor(private customerService: CustomerService,private dialogService:DialogService,private messageService: MessageService) {}
 
   ngOnInit() {
     this.customerService.getCustomers().subscribe((res: Customer[]) => {
@@ -32,7 +34,8 @@ export class CustomersComponent {
         { field: 'firstName', header: 'First Name' },
         { field: 'lastName', header: 'Last Name' },
         { field: 'email', header: 'Email' },
-        { field: 'phone', header: 'Phone' }
+        { field: 'phone', header: 'Phone' },
+        { field: 'options', header: 'Options'}
       ];
     });
   }
@@ -52,5 +55,16 @@ export class CustomersComponent {
       }
 
     });
+  }
+
+
+  openEditCustomerDialog( rowData:Customer) {
+    const ref = this.dialogService.open(AddCustomerComponent,{
+      header:"Edit Customer",
+      width:"70%",
+      contentStyle:{"max-height": "600px", "overflow":"auto"},
+      data:rowData
+    })
+    console.log(rowData);
   }
 }
