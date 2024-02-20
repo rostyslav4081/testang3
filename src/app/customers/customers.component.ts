@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Customer} from "../models/customer";
 import {CustomerService} from "../services/customer.service";
-import { ButtonModule } from 'primeng/button';
+
 
 import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
 import {AddCustomerComponent} from "../addCustomer/addcustomer.component";
@@ -23,6 +23,7 @@ export class CustomersComponent {
   cols!: any[];
 
   ref: DynamicDialogRef | undefined;
+
 
 
   constructor(private customerService: CustomerService,private dialogService:DialogService,private messageService: MessageService) {}
@@ -94,4 +95,21 @@ export class CustomersComponent {
         }
       })
   }
+
+  applyFilter(searcherString: string) {
+    if(searcherString ===''){
+      this.ngOnInit();
+    }else {
+      this.customers = this.customers.filter((customer) => {
+        return (
+          customer.firstName.toLowerCase().includes(searcherString.toLowerCase()) ||
+          customer.lastName.toLowerCase().includes(searcherString.toLowerCase()) ||
+          customer.email.toLowerCase().includes(searcherString.toLowerCase()) ||
+          customer.phone.toString().includes(searcherString)
+        );
+      });
+    }
+  }
+
+
 }
