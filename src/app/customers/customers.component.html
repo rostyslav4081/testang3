@@ -17,7 +17,7 @@
         <td>
           <button pButton type="button" (click)="openCustomerDialog()" label="AddCustomer"></button>
           <button pButton type="button" (click)="openEditCustomerDialog(rowData)" label="EditCustomer" class="p-button-success"></button>
-          <button pButton type="button" label="Delete" class="p-button-danger"></button>
+          <button pButton type="button" (click)="openDeleteDialog(rowData.id)"  label="DeleteCustomer" class="p-button-danger"></button>
         </td>
       </tr>
 

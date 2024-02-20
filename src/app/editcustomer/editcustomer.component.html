@@ -1,1 +1,39 @@
-<p>editcustomer works!</p>
+<form [formGroup]="editForm" (ngSubmit)="editCustomer()">
+  <div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-4">
+      <span class=" field p-float-label">
+            <input type="text"  id="id" formControlName="id" pInputText class="p-inputtext-sm" >
+            <label for="id">Id</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4">
+      <span class=" field p-float-label">
+            <input type="text"  id="firstName" formControlName="firstName" pInputText class="p-inputtext-sm" >
+            <label for="firstName">FirstName:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4">
+      <span class=" field p-float-label">
+            <input type="text" id="lastName" formControlName="lastName" pInputText  >
+            <label for="lastName">LastName:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4">
+      <span class=" field p-float-label">
+            <input type="email" id="email"   formControlName="email" pInputText >
+            <label for="email">Email:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4">
+      <span class=" field p-float-label">
+            <input type="text" id="phone" formControlName="phone" pInputText >
+            <label for="phone">Phone:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4">
+      <div>
+        <p-button type="submit" [disabled]="editForm.invalid">Edit</p-button>
+      </div>
+    </div>
+  </div>
+</form>

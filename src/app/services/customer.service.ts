@@ -93,8 +93,8 @@ export class CustomerService {
 
   /** PUT: update the hero on the server */
   updateCustomer(customer: Customer): Observable<any> {
-    return this.http.put(this.customersUrl, customer, this.httpOptions).pipe(
-      tap(_ => this.log(`updated customer id=${customer.id}`)),
+    return this.http.put<Customer>(this.customersUrl, customer, this.httpOptions).pipe(
+      tap(_ => this.log(`Updated customer with id=${customer.id}`)),
       catchError(this.handleError<any>('updateCustomer'))
     );
   }

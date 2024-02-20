@@ -20,7 +20,8 @@ import {AddCustomerComponent} from "./addCustomer/addcustomer.component";
 import {DialogModule} from "primeng/dialog";
 import {AnimateModule} from "primeng/animate";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { EditcustomerComponent } from './editcustomer/editcustomer.component';
+import { EditCustomerComponent } from './editcustomer/editcustomer.component';
+import { DelCustomerComponent } from './del-customer/del-customer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditcustomerComponent } from './editcustomer/editcustomer.component';
     OrdersComponent,
     MessagesComponent,
     AddCustomerComponent,
-    EditcustomerComponent,
+    EditCustomerComponent,
+    DelCustomerComponent,
   ],
   imports: [
     BrowserModule,
