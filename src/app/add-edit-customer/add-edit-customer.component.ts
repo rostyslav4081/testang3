@@ -18,19 +18,32 @@ export class AddEditCustomerComponent {
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig
   ) {
-    // Initialize the form with default values or values from config
-    this.customerForm = this.fb.group({
-      id: [(this.config.data?.id || '') , Validators.required],
-      firstName: [(this.config.data?.firstName || '') , Validators.required],
-      lastName: [(this.config.data?.lastName || '') , Validators.required],
-      email: [( this.config.data?.email || '') , Validators.required],
-      phone: [(this.config.data?.phone || '') , Validators.required]
-    });
+    if(this.config.data === undefined){
+      this.customerForm = this.fb.group({
+        id: undefined,
+        firstName: [ '', Validators.required],
+        lastName: ['', Validators.required],
+        email: ['', Validators.required],
+        phone: ['', Validators.required],
+      });
+    }else {
+      this.customerForm = this.fb.group({
+        id: [this.config.data.id , Validators.required],
+        firstName: [this.config.data.firstName , Validators.required],
+        lastName: [this.config.data.lastName, Validators.required],
+        email: [this.config.data.email , Validators.required],
+        phone: [this.config.data.phone , Validators.required],
+      });
+    }
+
+
   }
 
   saveCustomer() {
+    // Check if the form is valid
     if (this.customerForm.valid) {
       const customerData: Customer = this.customerForm.value;
+      // Check if customerData.id exists to determine if it's a new or existing customer
       if (!customerData.id) {
         // Add new customer
         this.customerService.addCustomer(customerData).subscribe(
@@ -58,4 +71,5 @@ export class AddEditCustomerComponent {
       console.error("Form is invalid");
     }
   }
+
 }
