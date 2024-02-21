@@ -23,6 +23,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { EditCustomerComponent } from './editcustomer/editcustomer.component';
 import { DelCustomerComponent } from './del-customer/del-customer.component';
 import {MenubarModule} from "primeng/menubar";
+import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MenubarModule} from "primeng/menubar";
     AddCustomerComponent,
     EditCustomerComponent,
     DelCustomerComponent,
+    AddEditCustomerComponent,
   ],
   imports: [
     BrowserModule,

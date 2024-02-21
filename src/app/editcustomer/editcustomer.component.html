@@ -1,6 +1,6 @@
 <form [formGroup]="editForm" (ngSubmit)="editCustomer()">
   <div class="p-grid p-fluid">
-    <div class="p-col-12 p-md-4 editComp">
+    <div class="p-col-12 p-md-4 editComp" hidden>
       <span class=" field p-float-label">
             <input type="text"  id="id" formControlName="id" pInputText class="p-inputtext-sm" >
             <label for="id">Id</label>

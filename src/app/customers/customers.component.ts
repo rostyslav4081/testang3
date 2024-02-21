@@ -8,6 +8,8 @@ import {AddCustomerComponent} from "../addCustomer/addcustomer.component";
 import {MessageService} from "primeng/api";
 import {EditCustomerComponent} from "../editcustomer/editcustomer.component";
 import {DelCustomerComponent} from "../del-customer/del-customer.component";
+import {InMemoryDataService} from "../in-memory-data.service";
+import {AddEditCustomerComponent} from "../add-edit-customer/add-edit-customer.component";
 
 
 
@@ -26,7 +28,7 @@ export class CustomersComponent {
 
 
 
-  constructor(private customerService: CustomerService,private dialogService:DialogService,private messageService: MessageService) {}
+  constructor(private customerService: CustomerService,private dialogService:DialogService,private inMemoryDataService:InMemoryDataService ) {}
 
   ngOnInit() {
     this.customerService.getCustomers().subscribe((res: Customer[]) => {
@@ -45,7 +47,7 @@ export class CustomersComponent {
 
 
   openCustomerDialog() {
-     this.ref = this.dialogService.open(AddCustomerComponent,{
+     this.ref = this.dialogService.open(AddEditCustomerComponent,{
       header:"New Customer",
       width: "70%",
       contentStyle:{"max-height": "600px", "overflow":"auto"}
@@ -54,8 +56,10 @@ export class CustomersComponent {
 
     this.ref.onClose.subscribe((customerData: Customer) => {
       if (customerData) {
-        this.customers.push(customerData);
-        
+        console.log(customerData);
+        const customerId = this.inMemoryDataService.genIdCustomer(this.customers);
+        this.customers.push({...customerData,id:customerId} );
+
       }
 
     });
@@ -63,7 +67,7 @@ export class CustomersComponent {
 
 
   openEditCustomerDialog( rowData:Customer) {
-    this.ref = this.dialogService.open(EditCustomerComponent,{
+    this.ref = this.dialogService.open(AddEditCustomerComponent,{
       header:"Edit Customer",
       width:"70%",
       contentStyle:{"max-height": "600px", "overflow":"auto"},
@@ -83,9 +87,7 @@ export class CustomersComponent {
       }
     });
   }
-  genIdCustomer(customers: Customer[]): number {
-    return customers.length > 0 ? Math.max(...customers.map(customer => customer.id)) + 1 : 11;
-  }
+
   openDeleteDialog(id:number) {
       this.ref = this.dialogService.open(DelCustomerComponent,{
         header:'Delete Customer',
