@@ -1,19 +1,25 @@
-<div style="display: flex; justify-content: center;">
-  <p-table  [columns]="cols" [value]="customers" [tableStyle]="{'max-width': '60%'}">
+<div class="p-card">
+  <p-table [columns]="cols" [value]="customers">
 
     <ng-template pTemplate="caption">
-      <div class="flex">
-        <span class="p-input-icon-left" >
-          <i class="pi pi-search"></i>
-<!--          onChange-->
-          <input pInputText type="text" (input)="applyFilter(searcherString.value)" placeholder="Search keyword" #searcherString/>
-        </span>
+      <div class="searcher">
+        <!-- Button with icon -->
+        <button pButton type="button" (click)="openCustomerDialog()" label="AddCustomer">
+          <i class="pi pi-plus"></i> <!-- Icon for adding customer -->
+        </button>
+
+        <!-- Input field with search icon -->
+        <span class="p-input-icon-left">
+      <i class="pi pi-search"></i> <!-- Search icon -->
+      <input pInputText type="text" (input)="applyFilter(searcherString.value)" placeholder="Search keyword" #searcherString/>
+    </span>
       </div>
     </ng-template>
+
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns">
-          {{col.header}}
+          {{ col.header }}
 
         </th>
 
@@ -24,13 +30,17 @@
       <tr>
         <!-- Loop through columns except the last one -->
         <ng-container *ngFor="let col of columns; let i = index">
-          <td *ngIf="i !== columns.length - 1">{{rowData[col.field]}}</td>
+          <td *ngIf="i !== columns.length - 1">{{ rowData[col.field] }}</td>
         </ng-container>
         <!-- Add buttons only in the last column -->
         <td>
-          <button pButton type="button" (click)="openCustomerDialog()" label="AddCustomer"></button>
-          <button pButton type="button" (click)="openEditCustomerDialog(rowData)" label="EditCustomer" class="p-button-success"></button>
-          <button pButton type="button" (click)="openDeleteDialog(rowData.id)"  label="DeleteCustomer" class="p-button-danger"></button>
+
+          <div class="btns">
+            <button pButton type="button" (click)="openEditCustomerDialog(rowData)" label="EditCustomer"
+                    class="p-button-success"></button>
+            <button pButton type="button" (click)="openDeleteDialog(rowData.id)" label="DeleteCustomer"
+                    class="p-button-danger"></button>
+          </div>
         </td>
       </tr>
     </ng-template>

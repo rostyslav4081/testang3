@@ -22,6 +22,7 @@ import {AnimateModule} from "primeng/animate";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { EditCustomerComponent } from './editcustomer/editcustomer.component';
 import { DelCustomerComponent } from './del-customer/del-customer.component';
+import {MenubarModule} from "primeng/menubar";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { DelCustomerComponent } from './del-customer/del-customer.component';
     DialogModule,
     AnimateModule,
     BrowserAnimationsModule,
+    MenubarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

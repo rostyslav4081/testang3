@@ -54,7 +54,8 @@ export class CustomersComponent {
 
     this.ref.onClose.subscribe((customerData: Customer) => {
       if (customerData) {
-        this.customers.push(customerData)
+        this.customers.push(customerData);
+        
       }
 
     });
@@ -82,7 +83,9 @@ export class CustomersComponent {
       }
     });
   }
-
+  genIdCustomer(customers: Customer[]): number {
+    return customers.length > 0 ? Math.max(...customers.map(customer => customer.id)) + 1 : 11;
+  }
   openDeleteDialog(id:number) {
       this.ref = this.dialogService.open(DelCustomerComponent,{
         header:'Delete Customer',
