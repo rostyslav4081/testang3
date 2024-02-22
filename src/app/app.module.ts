@@ -27,6 +27,10 @@ import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.
 import { DelOrderComponent } from './del-order/del-order.component';
 import { AddEditOrderComponent } from './add-edit-order/add-edit-order.component';
 import {CalendarModule} from "primeng/calendar";
+import {ToastModule} from "primeng/toast";
+import {MessageModule} from "primeng/message";
+import {MessageService} from "primeng/api";
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -56,8 +60,11 @@ import {CalendarModule} from "primeng/calendar";
     BrowserAnimationsModule,
     MenubarModule,
     CalendarModule,
+    ToastModule,
+    MessageModule,
+    RippleModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

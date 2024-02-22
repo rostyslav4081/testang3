@@ -4,6 +4,7 @@ import {CustomerService} from "../services/customer.service";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {Customer} from "../models/customer";
 import {OrderService} from "../services/order.service";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-del-customer',
@@ -17,9 +18,9 @@ export class DelCustomerComponent {
     private customerService: CustomerService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,
-    private orderService:OrderService
+    private orderService:OrderService,
+    private messageService: MessageService
   ) {
-    // Assign the id from the config data to the component property
     this.id = this.config.data;
     console.log(this.id);
   }
@@ -32,25 +33,24 @@ export class DelCustomerComponent {
           this.orderService.deleteOrderByCustemerId(this.id).subscribe(
             () => {
               console.log('Orders deleted successfully.');
+              this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Customer and orders deleted successfully!' });
             },
             error => {
               console.error('Error deleting orders:', error);
+              this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error deleting orders' });
             }
           );
-          // Pass true to indicate successful deletion
           this.ref.close(true);
         },
         error => {
           console.error("Error deleting customer", error);
-          // Pass false to indicate failure
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error deleting customer' });
           this.ref.close(false);
         }
       );
     }
   }
-
   close() {
-    // Close the dialog without any specific result
     this.ref.close();
   }
 }

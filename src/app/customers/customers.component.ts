@@ -28,7 +28,7 @@ export class CustomersComponent {
 
 
 
-  constructor(private customerService: CustomerService,private dialogService:DialogService,private inMemoryDataService:InMemoryDataService ) {}
+  constructor(private customerService: CustomerService,private dialogService:DialogService,private inMemoryDataService:InMemoryDataService) {}
 
   ngOnInit() {
     this.customerService.getCustomers().subscribe((res: Customer[]) => {

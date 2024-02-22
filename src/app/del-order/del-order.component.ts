@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {OrderService} from "../services/order.service";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-del-order',
@@ -14,9 +15,9 @@ export class DelOrderComponent {
   constructor(
     private orderService: OrderService,
     public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig
+    public config: DynamicDialogConfig,
+    private messageService: MessageService
   ) {
-    // Assign the id from the config data to the component property
     this.id = this.config.data;
     console.log(this.id);
   }
@@ -26,12 +27,12 @@ export class DelOrderComponent {
       this.orderService.deleteOrder(this.id).subscribe(
         response => {
           console.log("Order deleted successfully!", response);
-          // Pass true to indicate successful deletion
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Order deleted successfully!' });
           this.ref.close(true);
         },
         error => {
           console.error("Error deleting order", error);
-          // Pass false to indicate failure
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error deleting order' });
           this.ref.close(false);
         }
       );
