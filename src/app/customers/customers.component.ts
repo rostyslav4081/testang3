@@ -4,9 +4,9 @@ import {CustomerService} from "../services/customer.service";
 
 
 import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
-import {AddCustomerComponent} from "../addCustomer/addcustomer.component";
+
 import {MessageService} from "primeng/api";
-import {EditCustomerComponent} from "../editcustomer/editcustomer.component";
+
 import {DelCustomerComponent} from "../del-customer/del-customer.component";
 import {InMemoryDataService} from "../in-memory-data.service";
 import {AddEditCustomerComponent} from "../add-edit-customer/add-edit-customer.component";

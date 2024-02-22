@@ -1,5 +1,5 @@
 export enum StatusOrder {
-  New = 'nová',
-  Accepted = 'přijatá',
-  Completed = 'vyřízeno'
+  New = 'New',
+  Accepted = 'Accepted',
+  Completed = 'Completed'
 }

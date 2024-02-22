@@ -16,11 +16,11 @@ import {ButtonModule} from "primeng/button";
 
 import {InputTextModule} from "primeng/inputtext";
 import {ReactiveFormsModule} from "@angular/forms";
-import {AddCustomerComponent} from "./addCustomer/addcustomer.component";
+
 import {DialogModule} from "primeng/dialog";
 import {AnimateModule} from "primeng/animate";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { EditCustomerComponent } from './editcustomer/editcustomer.component';
+
 import { DelCustomerComponent } from './del-customer/del-customer.component';
 import {MenubarModule} from "primeng/menubar";
 import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.component';
@@ -34,8 +34,6 @@ import {CalendarModule} from "primeng/calendar";
     CustomersComponent,
     OrdersComponent,
     MessagesComponent,
-    AddCustomerComponent,
-    EditCustomerComponent,
     DelCustomerComponent,
     AddEditCustomerComponent,
     DelOrderComponent,

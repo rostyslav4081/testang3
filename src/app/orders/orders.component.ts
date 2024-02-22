@@ -44,7 +44,7 @@ export class OrdersComponent {
     this.ref = this.dialogService.open(AddEditOrderComponent,{
       header:"New Order",
       width: "70%",
-      contentStyle:{"max-height": "800px", "overflow":"auto"}
+      contentStyle:{"max-height": "1000px", "overflow":"auto"}
 
     })
 
@@ -78,7 +78,7 @@ export class OrdersComponent {
     this.ref = this.dialogService.open(AddEditOrderComponent,{
       header:"Edit Order",
       width:"70%",
-      contentStyle:{"max-height": "800px", "overflow":"auto"},
+      contentStyle:{"min-height": "900px", "overflow":"auto"},
       data:rowData
     })
 

@@ -14,8 +14,8 @@ import {Order} from "../models/order";
 })
 export class AddEditOrderComponent {
   orderForm!: FormGroup;
-  statuses: StatusOrder[] | undefined;
-  selectedStatus: StatusOrder | undefined;
+  statuses!: any[] ;
+
   constructor(
     private fb: FormBuilder,
     private orderService: OrderService,
@@ -40,6 +40,13 @@ export class AddEditOrderComponent {
         status: [this.config.data.status , Validators.required],
       });
     }
+  }
+  ngOnInit(): void {
+    // Initialize the form and other setup
+    this.statuses = this.getDropdownOptions(StatusOrder); // Populate statuses array
+  }
+  getDropdownOptions(enumObject: any): any[] {
+    return Object.keys(enumObject).map(key => ({ label: enumObject[key], value: key }));
   }
   saveOrder() {
     if (this.orderForm.valid) {
