@@ -1,1 +1,48 @@
-<p>orders works!</p>
+<div class="p-card">
+  <p-table [columns]="cols" [value]="orders">
+
+    <ng-template pTemplate="caption">
+      <div class="searcher">
+        <!-- Button with icon -->
+        <button pButton type="button" (click)="openOrderDialog()" label="AddOrder">
+          <i class="pi pi-plus"></i> <!-- Icon for adding customer -->
+        </button>
+
+        <!-- Input field with search icon -->
+        <span class="p-input-icon-left">
+      <i class="pi pi-search"></i> <!-- Search icon -->
+      <input pInputText type="text" (input)="applyFilter(searcherString.value)" placeholder="Search keyword" #searcherString/>
+    </span>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+
+        </th>
+
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <!-- Loop through columns except the last one -->
+        <ng-container *ngFor="let col of columns; let i = index">
+          <td *ngIf="i !== columns.length - 1">{{ rowData[col.field] }}</td>
+        </ng-container>
+        <!-- Add buttons only in the last column -->
+        <td>
+
+          <div class="btns">
+            <button pButton type="button" (click)="openEditOrderDialog(rowData)" label="EditOrder"
+                    class="p-button-success"></button>
+            <button pButton type="button" (click)="openDeleteDialog(rowData.id)" label="DeleteOrder"
+                    class="p-button-danger"></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

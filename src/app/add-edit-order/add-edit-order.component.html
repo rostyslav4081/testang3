@@ -1,0 +1,44 @@
+<form [formGroup]="orderForm" (ngSubmit)="saveOrder()">
+  <div class="p-grid p-fluid" >
+    <div class="p-col-12 p-md-4 compForm" hidden>
+      <span class=" field p-float-label">
+            <input type="text"  id="id" formControlName="id" pInputText class="p-inputtext-sm" >
+            <label for="id">Id</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4 compForm">
+      <span class=" field p-float-label">
+            <input type="text" id="numberOrder" formControlName="numberOrder" pInputText class="p-inputtext-sm">
+            <label for="numberOrder">NumberOrder:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4 compForm">
+      <span class="field p-float-label" >
+        <p-calendar type="text" id="dateOrder" formControlName="dateOrder" pInputText [showIcon]="true"></p-calendar>
+<!--            <input type="text" id="dateOrder" formControlName="dateOrder" pInputText>-->
+            <label for="dateOrder">DateOrder:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4 compForm">
+      <span class=" field p-float-label">
+            <input type="text" id="value" formControlName="value" pInputText>
+            <label for="value">Value:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4 compForm">
+      <span class=" field p-float-label">
+<!--            <input type="text" id="status" formControlName="status" pInputText>-->
+
+    <p-dropdown  [options]="statuses" type="text" id="status" formControlName="status"   [showClear]="true"  pInputText></p-dropdown>
+
+            <label for="status">Status:</label>
+        </span>
+    </div>
+    <div class="p-col-12 p-md-4 compForm">
+      <div>
+        <button pButton label="Save" type="submit" [disabled]="orderForm.invalid"></button>
+      </div>
+    </div>
+  </div>
+
+</form>

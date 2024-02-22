@@ -24,6 +24,9 @@ import { EditCustomerComponent } from './editcustomer/editcustomer.component';
 import { DelCustomerComponent } from './del-customer/del-customer.component';
 import {MenubarModule} from "primeng/menubar";
 import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.component';
+import { DelOrderComponent } from './del-order/del-order.component';
+import { AddEditOrderComponent } from './add-edit-order/add-edit-order.component';
+import {CalendarModule} from "primeng/calendar";
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.
     EditCustomerComponent,
     DelCustomerComponent,
     AddEditCustomerComponent,
+    DelOrderComponent,
+    AddEditOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,7 @@ import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.
     AnimateModule,
     BrowserAnimationsModule,
     MenubarModule,
+    CalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

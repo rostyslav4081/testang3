@@ -156,7 +156,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 1,
         numberOrder: "ABC123",
-        dateOrder: "2024-02-01T12:00:00Z",
+        dateOrder: "02/05/2024",
         value: 100,
         status: StatusOrder.New,
         idCustomer: 1
@@ -164,7 +164,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 2,
         numberOrder: "DEF456",
-        dateOrder: "2024-02-01T13:00:00Z",
+        dateOrder: "01/05/2024",
         value: 150,
         status: StatusOrder.Accepted,
         idCustomer: 2
@@ -172,7 +172,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 3,
         numberOrder: "GHI789",
-        dateOrder: "2024-02-01T14:00:00Z",
+        dateOrder: "02/06/2023",
         value: 200,
         status: StatusOrder.Completed,
         idCustomer: 3
@@ -180,7 +180,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 4,
         numberOrder: "JKL012",
-        dateOrder: "2024-02-01T15:00:00Z",
+        dateOrder: "02/06/2023",
         value: 120,
         status: StatusOrder.New,
         idCustomer: 4
@@ -188,7 +188,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 5,
         numberOrder: "MNO345",
-        dateOrder: "2024-02-01T16:00:00Z",
+        dateOrder: "02/06/2022",
         value: 90,
         status: StatusOrder.Accepted,
         idCustomer: 5
@@ -196,7 +196,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 6,
         numberOrder: "PQR678",
-        dateOrder: "2024-02-01T17:00:00Z",
+        dateOrder: "02/07/2023",
         value: 180,
         status: StatusOrder.Completed,
         idCustomer: 6
@@ -204,7 +204,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 7,
         numberOrder: "STU901",
-        dateOrder: "2024-02-01T18:00:00Z",
+        dateOrder: "01/07/2023",
         value: 210,
         status: StatusOrder.New,
         idCustomer: 7
@@ -212,7 +212,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 8,
         numberOrder: "VWX234",
-        dateOrder: "2024-02-01T19:00:00Z",
+        dateOrder: "02/08/2023",
         value: 130,
         status: StatusOrder.Accepted,
         idCustomer: 8
@@ -220,7 +220,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 9,
         numberOrder: "YZA567",
-        dateOrder: "2024-02-01T20:00:00Z",
+        dateOrder: "02/08/2023",
         value: 240,
         status: StatusOrder.Completed,
         idCustomer: 9
@@ -228,7 +228,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 10,
         numberOrder: "BCD890",
-        dateOrder: "2024-02-01T21:00:00Z",
+        dateOrder: "02/05/2024",
         value: 110,
         status: StatusOrder.New,
         idCustomer: 10
@@ -236,7 +236,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 11,
         numberOrder: "EFG123",
-        dateOrder: "2024-02-01T22:00:00Z",
+        dateOrder: "02/06/2022",
         value: 160,
         status: StatusOrder.Accepted,
         idCustomer: 11
@@ -244,7 +244,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 12,
         numberOrder: "HIJ456",
-        dateOrder: "2024-02-01T23:00:00Z",
+        dateOrder: "02/05/2022",
         value: 190,
         status: StatusOrder.Completed,
         idCustomer: 12
@@ -252,7 +252,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 13,
         numberOrder: "KLM789",
-        dateOrder: "2024-02-02T00:00:00Z",
+        dateOrder: "02/05/2024",
         value: 220,
         status: StatusOrder.New,
         idCustomer: 13
@@ -260,7 +260,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 14,
         numberOrder: "NOP012",
-        dateOrder: "2024-02-02T01:00:00Z",
+        dateOrder: "02/05/2022",
         value: 140,
         status: StatusOrder.Accepted,
         idCustomer: 14
@@ -268,7 +268,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 15,
         numberOrder: "QRS345",
-        dateOrder: "2024-02-02T02:00:00Z",
+        dateOrder: "02/07/2022",
         value: 250,
         status: StatusOrder.Completed,
         idCustomer: 15
@@ -276,7 +276,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 16,
         numberOrder: "TUV678",
-        dateOrder: "2024-02-02T03:00:00Z",
+        dateOrder: "02/05/2024",
         value: 120,
         status: StatusOrder.New,
         idCustomer: 16
@@ -284,7 +284,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 17,
         numberOrder: "WXYZ901",
-        dateOrder: "2024-02-02T04:00:00Z",
+        dateOrder: "02/05/2024",
         value: 130,
         status: StatusOrder.Accepted,
         idCustomer: 17
@@ -292,7 +292,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 18,
         numberOrder: "ABC234",
-        dateOrder: "2024-02-02T05:00:00Z",
+        dateOrder: "02/05/2024",
         value: 180,
         status: StatusOrder.Completed,
         idCustomer: 18
@@ -300,7 +300,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 19,
         numberOrder: "DEF567",
-        dateOrder: " ",
+        dateOrder: "02/05/2024",
         value: 260,
         status: StatusOrder.New,
         idCustomer: 19
@@ -308,7 +308,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 20,
         numberOrder: "GHI890",
-        dateOrder: "2024-02-02T07:00:00Z",
+        dateOrder: "02/05/2024",
         value: 150,
         status: StatusOrder.Accepted,
         idCustomer: 20

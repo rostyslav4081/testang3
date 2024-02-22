@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {CustomerService} from "../services/customer.service";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 import {Customer} from "../models/customer";
+import {OrderService} from "../services/order.service";
 
 @Component({
   selector: 'app-del-customer',
@@ -15,7 +16,8 @@ export class DelCustomerComponent {
   constructor(
     private customerService: CustomerService,
     public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig
+    public config: DynamicDialogConfig,
+    private orderService:OrderService
   ) {
     // Assign the id from the config data to the component property
     this.id = this.config.data;
@@ -27,6 +29,14 @@ export class DelCustomerComponent {
       this.customerService.deleteCustomer(this.id).subscribe(
         response => {
           console.log("Customer deleted successfully!", response);
+          this.orderService.deleteOrderByCustemerId(this.id).subscribe(
+            () => {
+              console.log('Orders deleted successfully.');
+            },
+            error => {
+              console.error('Error deleting orders:', error);
+            }
+          );
           // Pass true to indicate successful deletion
           this.ref.close(true);
         },
